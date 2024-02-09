@@ -22,7 +22,8 @@ defmodule Statepoc.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ash, "~> 2.18"}
+      {:ash, "~> 2.18"},
+      {:ash_state_machine, "~> 0.2.2"}
     ]
   end
 end
