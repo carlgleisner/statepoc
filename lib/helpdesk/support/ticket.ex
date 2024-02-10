@@ -1,5 +1,6 @@
 defmodule Statepoc.Support.Ticket do
   use Ash.Resource,
+    data_layer: Ash.DataLayer.Ets,
     extensions: [AshStateMachine]
 
   state_machine do
