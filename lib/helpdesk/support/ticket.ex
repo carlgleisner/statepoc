@@ -39,16 +39,16 @@ defmodule Statepoc.Support.Ticket do
   changes do
     change after_transaction(fn
              changeset, {:ok, result} ->
-               IO.inspect("Got {:ok, result}", label: "after_transaction: ")
+               IO.inspect("Got {:ok, result}", label: "after_transaction")
                {:ok, result}
 
              changeset, {:error, error} ->
                message = Exception.message(error)
-               IO.inspect(message, label: "after_transaction: ")
+               IO.inspect(message, label: "after_transaction")
 
                changeset.data
                |> Ash.Changeset.for_update(:error, %{
-                 message: message,
+                 error: message,
                  error_state: changeset.data.state
                })
                |> Statepoc.Support.update()
